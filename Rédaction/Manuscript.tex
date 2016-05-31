@@ -1,29 +1,38 @@
-\documentclass[preprint,3p, authoryear]{elsarticle}
+\documentclass{article}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}  
+%Langue utilisée
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\emergencystretch=8em
+\usepackage[margin=1in]{geometry}
 
-\journal{Journal of International Economics}
+
+
+\title{Comment: Inferring Trade Costs from Trade Booms and Trade Busts}
+
+\author[1]{Guillaume Corlay}
+\author[2]{Stéphane Dupraz}
+\author[1]{Claire Labonne}
+\author[1]{Anne Muller}
+%\author[3]{Guillaume Daudin}
+\author[3]{Guillaume Daudin\footnote{Corresponding author: guillaume.daudin@dauphine.fr, }\footnote{We are grateful to Celine Antonin (OFCE) for her constant supply of helpful comments. She, of course, bears no responsibility for remaining errors.}}
+\affil[1] {ENSAE, French National School of Statistics and Economic Administration, 3, avenue Pierre Larousse, 92245 Malakoff, FRANCE}
+\affil[2] {Columbia University, 10025 New York NY, USA}
+\affil[3] {Université Paris-Dauphine, PSL Research University, LEDa, 75016 PARIS, FRANCE
+Université Paris-Dauphine, PSL Research University, LEDa, UMR [225], DIAL, 75016 PARIS, FRANCE
+
+SciencesPo, Observatoire Français des Conjonctures Économiques (OFCE), 75007, PARIS, FRANCE}
+
+
+%\date{March 2, 2012}
 
 \begin{document}
 
-\begin{frontmatter}
+\maketitle
 
-\title{Comment: Inferring Trade Costs from Trade Booms and Trade Busts}
-
-\author[rvt]{Guillaume Corlay}
-\author[rvt]{Stephane Dupraz\corref{cor1} \fnref{fn1}}
-\author[rvt]{Claire Labonne}
-\author[rvt]{Anne Muller}
-\author[rvt]{Guillaume Daudin}
-\cortext[cor1]{Corresponding author}
-\ead{guillaume.daudin@dauphine.fr} \fntext[fn1]{Present
-affiliation: Columbia University. Personal address : 535 W.
-111th street, apt 64, 10025 New York NY. Phone number:
-646-320-9026.}
-
-\address[rvt]{ENSAE, French National School of Statistics and Economic Administration, 3, avenue Pierre Larousse, 92245 Malakoff Cedex, FRANCE}
-
-\title{Comment: Inferring Trade Costs from Trade Booms and Trade Busts}
-
-$\date{March 2, 2012}
 
 \begin{abstract}
 \cite{JMN2011} offer an alternative to price gaps to quantify
@@ -46,12 +55,10 @@ trade flows, if not to rephrase the information already
 contained in an openness ratio.
 \end{abstract}
 
-\begin{keyword}
-Trade costs, globalization, gravity model, aggregation,
-structure effect.
-\end{keyword}
 
-\end{frontmatter}
+Keywords: Trade costs, globalization, gravity model, aggregation,
+structure effect.
+JEL Code: 
 
 
 \section{Introduction}
@@ -216,8 +223,8 @@ macroeconomic frictions that impede international market
 integration but which are inherently difficult to observe. We
 emphasize that this approach of inferring trade costs from
 readily available trade data holds clear advantages for applied
-research: the constraints on enumerating �--� let alone,
-collecting data on �--� every individual trade cost element
+research: the constraints on enumerating — let alone,
+collecting data on — every individual trade cost element
 even over short periods of time makes a direct accounting
 approach impossible.''} (p.131).
 
@@ -704,13 +711,6 @@ therefore bound to always reword the information given by trade
 flows relative to output, such as contained in an openness
 ratio.
 
-\section*{Acknowledgments}
-
-We are grateful to Celine Antonin (OFCE) and Guillaume Daudin
-(EQUIPPE (Lille I) \& OFCE) for their constant supply of
-helpful comments. They, of course, bear no responsibility for
-remaining errors.
-
 \appendix
 
 \section{\label{A1}Appendix: Deducing the measure of trade costs from an equality between a MRS and a price ratio}
@@ -857,7 +857,7 @@ Jacks et al.'s measure is biased toward the growth rates of
 costs incurred with small trade partners.
 
 \nocite{*}
-\bibliographystyle{elsarticle-harv}
+\bibliographystyle{apalike}
 \bibliography{bibliography}
 
 \end{document}
