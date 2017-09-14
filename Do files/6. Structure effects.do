@@ -1,4 +1,9 @@
-cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+*cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+
+if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du commerce - ancien ENSAE/Stata"
+
+
+
 use table, replace
 
 keep if year==1870|year==1913|year==1921|year==1939|year==1950|year==2000

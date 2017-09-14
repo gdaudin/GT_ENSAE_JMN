@@ -1,4 +1,7 @@
-cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+*cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+
+if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du commerce - ancien ENSAE/Stata"
+
 use table, replace
 
 // Create 130 doublons first
