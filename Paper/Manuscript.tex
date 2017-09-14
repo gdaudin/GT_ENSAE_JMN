@@ -310,8 +310,9 @@ expression is given by Jacks \textit{et al.}'s key equation
 (\ref{keyeq}) applied to a three-countries model:
 
 \begin{eqnarray}
-1+\upsilon_{i}=\left(\frac{x_{ii} x_{pp}}{x_{ip}
-x_{pi}}\right)^{\frac{1}{2(\sigma-1)}} \label{keyeq3model}
+1+\upsilon_{i}= \left(\frac{x_{ii} x_{pp}}{x_{ip}
+x_{pi}}\right)^{\frac{1}{2(\sigma-1)}}
+=\left(\frac{x_{ii} \sum_{j \neq i, k \neq i } x_{jk}}{\sum_{j \neq i } x_{ij}\sum_{j \neq i} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}}   \label{keyeq3model}
 \end{eqnarray}
 
 where $x_{ip}$ and $x_{pi}$ are respectively real exports and
@@ -320,6 +321,12 @@ $x_{pp}$ is the volume of trade within and between the trading
 partners present in the data. This `domestic trade' variable
 now
 includes cross-border trade.\\
+
+Compare this with Jacks \textit{et al.}'s  method : 
+\begin{eqnarray}
+1+\tau_i&=& \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left(1+\tau_{ij}\right)}
+= \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left( \frac{x_{ii} x_{jj}}{x_{ij} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}} }
+\end{eqnarray}
 
 Using this measure of trade costs, we provide the same
 decomposition in four terms of the increase in trade flows
