@@ -1,0 +1,95 @@
+*Before loading data, you must set maxvar and matsize
+*set maxvar 5000 
+*set matsize 10000
+set more off
+gen ltc8=ln(tc8)
+gen ltar1=log(tar1*tar2)
+gen ltar2=log(cwtar1*cwtar2)
+gen ldist=log(dist)
+gen logtrade12=ln(trade12)
+gen logtrade21=ln(trade21)
+gen logaverage=(logtrade12+logtrade21)/2
+gen logtrade=logtrade12+logtrade21
+gen loggdpsum=ln(gdp1+gdp2)
+gen loggdpprod=ln(gdp1*gdp2)
+gen s1=gdp1/(gdp1+gdp2)
+gen s2=gdp2/(gdp1+gdp2)
+gen logsprod=ln(s1*s2)
+gen gs=gs1*gs2
+replace gs=0 if gs==.
+gen dpeg=.
+replace dpeg=1 if ctry1=="USA" & usd2==1
+replace dpeg=1 if ctry2=="USA" & usd1==1
+replace dpeg=1 if ctry1=="UK" & gbp2==1
+replace dpeg=1 if ctry2=="UK" & gbp1==1
+replace dpeg=1 if ctry1=="FRA" & frf2==1
+replace dpeg=1 if ctry2=="FRA" & frf1==1
+replace dpeg=0 if dpeg==.
+gen fixed=0
+replace fixed=1 if gs==1
+replace fixed=1 if dpeg==1
+quietly tab year, gen(t)
+egen ctypair=group(ctry1 ctry2)
+quietly tab ctypair, gen(pair)
+tsset ctypair year
+
+*With country fixed effects
+quiet tab ctry2, gen(c)
+replace c3=1 if ctry1=="AUS"
+replace c4=1 if ctry1=="BEL"
+replace c6=1 if ctry1=="CAN"
+replace c7=1 if ctry1=="DEN"
+replace c8=1 if ctry1=="FRA"
+replace c11=1 if ctry1=="IND"
+replace c13=1 if ctry1=="ITA"
+replace c14=1 if ctry1=="JAP"
+replace c16=1 if ctry1=="NET"
+replace c17=1 if ctry1=="NEW"
+replace c18=1 if ctry1=="NOR"
+replace c20=1 if ctry1=="POR"
+replace c21=1 if ctry1=="SPA"
+replace c23=1 if ctry1=="SWE"
+replace c25=1 if ctry1=="UK"
+gen c27=0
+replace c27=1 if ctry1=="USA"
+
+reg logtrade loggdpprod ldist fixed language empire border c1-c27 if (complete==1 & year<1914 & fixed~=.), robust
+reg logtrade loggdpprod ldist fixed language empire border c1-c27 if (complete==1 & year>1920 & year<1940 & fixed~=.), robust 
+reg logtrade loggdpprod ldist fixed language empire border c1-c27 if (complete==1 & year>1949 & fixed~=.), robust
+
+*With country-year and year fixed effects
+
+preserve
+drop if year>1913
+xi: reg logtrade ldist fixed language empire border i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year<1914 & fixed~=.), robust
+restore
+
+preserve
+drop if (year<1921|year>1939)
+xi: reg logtrade ldist fixed language empire border i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year>1920 & year<1940 & fixed~=.), robust
+restore
+
+preserve
+drop if year<1950
+xi: reg logtrade ldist fixed language empire border i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year>1949 & fixed~=.), robust
+restore
+
+*Trade cost regressions
+
+reg ltc8 ldist fixed language empire border c1-c27 t1-t130 if (complete==1 & fixed~=. & (year<1914|(year>1920 & year<1940)|year>1949)), robust
+reg ltc8 ldist fixed language empire border c1-c27 t1-t130 if (complete==1 & year<1914 & fixed~=.), robust
+reg ltc8 ldist fixed language empire border c1-c27 t1-t130 if (complete==1 & year>1920 & year<1940 & fixed~=.), robust
+reg ltc8 ldist fixed language empire border c1-c27 t1-t130 if (complete==1 & year>1949 & fixed~=.), robust
+
+*Residuals versus trade costs 
+
+xi: reg logtrade i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year<1914 & fixed~=.) 
+predict e1 if (complete==1 & year<1914 & fixed~=.), residuals
+
+xi: reg logtrade i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year>1920 & year<1940 & fixed~=.)
+predict e2 if (complete==1 & year>1920 & year<1940 & fixed~=.), residuals
+
+xi: reg logtrade i.year*c1 i.year*c2 i.year*c3 i.year*c4 i.year*c5 i.year*c6 i.year*c7 i.year*c8 i.year*c9 i.year*c10 i.year*c11 i.year*c12 i.year*c13 i.year*c14 i.year*c15 i.year*c16 i.year*c17 i.year*c18 i.year*c19 i.year*c20 i.year*c21 i.year*c22 i.year*c23 i.year*c24 i.year*c25 i.year*c26 i.year*c27 if (complete==1 & year>1949 & fixed~=.)
+predict e3 if (complete==1 & year>1949 & fixed~=.), residuals
+
+
