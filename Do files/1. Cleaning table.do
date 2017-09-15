@@ -3,7 +3,7 @@
 
 if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du commerce - ancien ENSAE/Stata"
 
-use tbtbtc, replace
+use tbtbtc_corr, replace
 
 //keep if year==1870|year==1913|year==1921|year==1939|year==1950|year==2000
 //list ctry1 ctry2 year if trade12==.|trade12==0|trade21==.|trade21==0
