@@ -12,6 +12,8 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{tablefootnote}
+\usepackage{caption}
+\newcommand{\Note}[1]{\caption*{Note: {#1}} }
 
 
 
@@ -249,8 +251,8 @@ USA&208&166&42&241&170&72 \tabularnewline
 
 \end{tabularx}
 \caption{Decomposition of the growth of exportations between
-GDP growth and Openness ratio growth, log differences (interpreted as percentages).
-Figures for Norway are not given because the dissolution of the
+GDP growth and Openness ratio growth, log differences (interpreted as percentages).}
+\Note{Figures for Norway are not given because the dissolution of the
 union between Norway and Sweden (1905) makes them
 meaningless.}\label{OR}
 \end{table}
@@ -281,15 +283,12 @@ country provides an aggregate measure of trade costs that does
 not rely on any \textit{ad hoc} aggregation method but instead on
 microfoundations. The drawback of this method is that it is very data-intensive. It requires the knowledge of all bilateral trade flows between the countries in the data. 
 
-Let us note $\upsilon_{i}$ the corresponding trade cost faced
-by country $i$ with all its trading partners in the data. Its
-expression is given by Jacks \textit{et al.}'s key equation
-(\ref{keyeq}) applied to a three-countries model:
+Let us note $\upsilon_{i}$ the corresponding trade cost faced by country $i$ with all its trading partners in the data. Its expression is given by Jacks \textit{et al.}'s key equation (\ref{keyeq}) applied to a two-countries model:
 
 \begin{eqnarray}
 1+\upsilon_{i}= \left(\frac{x_{ii} x_{pp}}{x_{ip}
 x_{pi}}\right)^{\frac{1}{2(\sigma-1)}}
-=\left(\frac{x_{ii} \sum_{j \neq i, k \neq i } x_{jk}}{\sum_{j \neq i } x_{ij}\sum_{j \neq i} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}}   \label{keyeq3model}
+=\left(\frac{x_{ii} \sum_{j \neq i, k \neq i } x_{jk}}{\sum_{j \neq i } x_{ij}\sum_{j \neq i} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}}   \label{keyeq2model}
 \end{eqnarray}
 
 where $x_{ip}$ and $x_{pi}$ are respectively real exports and
@@ -303,6 +302,7 @@ Compare this with Jacks \textit{et al.}'s  method to measure the mean trade cost
 \begin{eqnarray}
 1+\tau_i&=& \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left(1+\tau_{ij}\right)}
 = \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left( \frac{x_{ii} x_{jj}}{x_{ij} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}} }
+ \label{jackssection3}
 \end{eqnarray}
 
 To illustrate the practical difference between these two methods, we provide the same decomposition in four terms of the increase in trade flows during the two globalizations as in the authors' article for the countries with the most trade partners available in the data (France (24), the UK (25), the USA (23)).
@@ -352,11 +352,14 @@ Unweighted average&202&-3&137&-7&329 \tabularnewline
 \caption{Decomposition of the growth in international trade
 (logarithms) with \textit{ad hoc} averages and a microfounded
 aggregation method. First wave of globalization,
-1870-1913.  \emph{JMN 2011} refers to the averaging over dyads,
+1870-1913. }
+\Note {\emph{JMN 2011} refers to the averaging over dyads,
 \emph{JMN by country} by country refers to the averaging over
 trading partners for one country, \emph{our methodl}
-refers to the aggregation method we offer. \hspace{\linewidth}
-\textbf{Note:} The contribution of output growth is constant for all countries in our method because it is measured as the growth of total world output}\label{glob1}
+refers to the aggregation method we offer.
+
+The contribution of output growth is constant for all countries in our method because it is measured as the growth of total world output}
+\label{glob1}
 \end{table}
 
 
@@ -396,12 +399,14 @@ Unweighted average&347&7&254&-16&592 \tabularnewline
 \end{tabularx}
 \caption{Decomposition of the growth in international trade
 (logarithms) with \textit{ad hoc} averages and a microfounded
-aggregation method. Second wave of globalization, 1950-2000.
-\emph{JMN 2011} refers to the averaging over dyads,
+aggregation method. Second wave of globalization, 1950-2000.}
+\Note {\emph{JMN 2011} refers to the averaging over dyads,
 \emph{JMN by country} by country refers to the averaging over
 trading partners for one country, \emph{our methodl}
-refers to the aggregation method we offer.\hspace{\linewidth}
-\textbf{Note:} The contribution of output growth is constant for all countries in our method because it is measured as the growth of total world output}\label{glob2}
+refers to the aggregation method we offer.
+
+The contribution of output growth is constant for all countries in our method because it is measured as the growth of total world output}
+\label{glob2}
 \end{table}
 
 
@@ -419,76 +424,54 @@ It is no coincidence if, despite the sample change, these results are similar to
 \section{\label{3} Sensitivity of the trade cost measure to
 structure effects}
 
-Our explanation of why Jacks \textit{et al.}'s aggregate measure of
-trade costs yields different conclusion 
-from table \ref{OR} is because it is sensitive to structure
-effects. To explain this idea, and for clarity purposes, let us consider
-a word where partners are symmetric (domestic trade is equal in $i$ and $j$ and $x_ij$=$x_ji$). From equation \ref{keyeq}, we have:
+The reason why Jacks \textit{et al.}'s aggregate measure of trade costs yields different conclusion the micro-founded method (and openness rate) is its sensitivity to structure
+effects. To explain this idea, and for clarity purposes, let us move to a world of symmetric partners (domestic trade is equal in $i$ and $j$ and $x_{ij}$=$x_{ji}$).  Dyadic bilateral trade flows are not equal because some dyads are further appart than others. Equation (\ref{keyeq}) gives: 
 
 \begin{eqnarray}
 1+\tau_{ij}= \left(\frac{x_{ii}}{x_{ji}}\right)^{\frac{1}{\sigma-1}}\label{tausimplified}
 \end{eqnarray}
 
-This relation does not of course correspond to the arbitrage
-condition of country $i$, which would involve supply prices,
-but our aim here is to highlight the mechanism behind Jacks et
-al.'s aggregation. Note $\overline{a_j}$ the arithmetic mean
+Note $\overline{a_j}$ the arithmetic mean
 of $a_j$ over $j$ ($\overline{a_j}=1/n \sum_{j=1}^{n}a_j$). One can
 then compare the unweighted average of $\tau_{ij}$ according to equation 
 (\ref{tausimplified}) and the measure derived from the
-three-countries model in equation (\ref{keyeq3model}):
+two-countries model in equation (\ref{keyeq2model}):
 
 \begin{eqnarray}
 1+\tau_i&=& x_{ii}^{\frac{1}{\sigma-1}} \left(\overline{{x_{ji}^{\frac{1}{1-\sigma}}}}\right) \label{tau}\\
 1+\upsilon_i&=&x_{ii}^{\frac{1}{\sigma-1}} (n \times \overline{x_{ji}})^{\frac{1}{1-\sigma}}\label{upsilon}
 \end{eqnarray}
 
-Except for the factor $n$ (which is irrelevant since we are
-concerned with the evolution of the trade costs index) the two
-expressions (\ref{tau}) and (\ref{upsilon}) differ only by the
-mean they use. On the one hand, $\upsilon_i$ uses the
-arithmetic mean of trade flows $x_{ji}$. On the other hand,
-$\tau_i$, because it uses an arithmetic mean over $\tau_{ij}$,
-uses a mean power $1/(1-\sigma)$ of the value of trade flows,
-$\left(\overline{x_{ji}^{\frac{1}{1-\sigma}}}\right)^{1-\sigma}$.
-Appendix \ref{A2} establishes that the curvature
-properties of the function $x \rightarrow
-x^{\frac{1}{1-\sigma}}$, $\sigma>1$ tend to draw the growth of
-$\tau_i$ towards the values of the growth of bilateral trade
-costs incurred with small trading partners.\footnote{The `size' of a country is
-used here to refer to the importance of the volume of its trade
-with $i$ among trade partners of country $i$, regardless of its
-population and GDP.} On the contrary,
-$\upsilon_i$ puts more weight on big trade partners, consistent
-with intuition and their higher share of trade flows.
+Except for the factor $n$ (which is irrelevant since we are concerned with the evolution of the trade costs index) the two equations (\ref{tau}) and (\ref{upsilon}) differ only by the mean they use.
+Equation (\ref{upsilon}) uses the arithmetic mean of trade flows $x_{ji}$. Equation (\ref{tau}), because it uses an arithmetic mean over $\tau_{ij}$, uses a power mean of exponent  $1/(1-\sigma)$ of the value of trade flows, $\left(\overline{x_{ji}^{\frac{1}{1-\sigma}}}\right)^{1-\sigma}$.
+Appendix \ref{A2} establishes that the curvature properties of the function $x \rightarrow x^{\frac{1}{1-\sigma}}$, $\sigma>1$ tend to draw the growth of $\tau_i$ towards the values incurred between dyads that do not trade much together (small $x_{ij})$.
+On the contrary, $\upsilon_i$ puts more weight on big trade flows, in a way consistent with intuition.
 %If the
 %arithmetic mean is independent of the distribution of the
 %importations over trade partners, the mean power $1/(1-\sigma)$
 %is extremely sensitive to structure effects.
 
-The authors partly correct this biais in the average of $\tau_{ij}$ by the use a end-of-period-GDP
-weighted average. However, as tables \ref{glob1} and \ref{glob2} show,
-weighting by the GDP of trade partners, besides not being
-theoretically justified, does not provide an accurate
-correction of the bias in the measure. One reason for this
-failure is that the relationship between GDP and the importance
-of trade flows is not systematic.\\
+Let us now move away from our symmetric world. Jacks  \textit{et al.} partially correct that bias by using a end-of-period-GDP weights average to compute the average of  $\tau_{ij}$.
+However, as tables \ref{glob1} and \ref{glob2} show, weighting by the GDP of trade partners, besides not being theoretically justified, does not provide an accurate correction of the bias in the measure.
+One reason for this failure is that the relationship between GDP and the importance of trade flows is not systematic.
 
-The average of the bilateral trade costs $\tau_{ij}$ captures both trade
-costs and the distribution of trade costs relative to the size
-of the trading partners. Through time, if dyads with small starting trade experience  faster growth of trade than others, the decline of trade costs measured by $\tau_i$ will be overestimated compared to the decline of $\upsilon_i$.
-This fits the data. For both globalizations, figure
-\ref{structure} plots the growth of trade flows (measured by
-$\Delta ln (\sqrt{x_{ij} x_{ji}})$) as a function of the
-initial value of trade (measured by the logarithm of the
-geometric average of bilateral average $ln(\sqrt{x_{ij}
-x_{ji}})$) for all dyads in the sample. This is also confirmed in the contrast between the rate of growth of exports
-(table \ref{OR}) and the rate of growth of bilateral trade flows (table \ref{glob1} and \ref{glob2}), as export growth was relatively faster than bilateral trade growth in the first globalization compared to the second (486/178 > 473/246). It confirms that the pairs of countries that initially traded little together experienced faster growth of trade compared to other pairs in the first than in the second globalization.  This in an interesting result, but not the one presented by JMN.
+For these reasons, Jacks  \textit{et al.}'s average of the bilateral trade costs $\tau_{ij}$ captures both the evolution of trade costs and the distribution of the evolution of trade costs over dyad sizes.
+As a result, if dyads with small starting trade experience faster growth of trade than others, the decline of trade costs measured by $\tau_i$ will be overestimated compared to the decline of $\upsilon_i$.
+This fits the data and can explain the difference they find between the first and the second globalization. In the first globalization, pairs of countries that initially traded little together experienced relative faster trade growth.
+For both globalizations, figure \ref{structure} plots the growth of trade flows (measured by $\Delta ln (\sqrt{x_{ij} x_{ji}})$) as a function of the initial value of trade (measured by the logarithm of the geometric average of bilateral average $ln(\sqrt{x_{ij} x_{ji}})$) for all dyads in the sample.
+
+To sum up : in the first globalization, pairs of countries that initially traded little together experienced relative faster trade growth. This leads Jacks  \textit{et al.} to overestimate the role of trade costs in the first globalization.
 
 \begin{figure}
 \centering
 \includegraphics{structure.eps}
-\caption{Growth of trade flows (logarithms) depending on their initial value for the first (1870-1913) and second (1950-2000) globalizations (logarithms).}\label{structure}
+\caption{Growth of trade flows (logarithms) depending on their initial value for the first (1870-1913) and second (1950-2000) globalizations (logarithms).}
+\Note {The correlation for 1870-1913 is -0.635, with 95\% confidence interval: [-0.728;-0.520]
+
+The correlation for 1950-2000 is -0.312, with 95\% confidence interval: [-0.459;-0.147]
+
+These correlation coefficients are statistically significantly different.}
+\label{structure}
 \end{figure}
 
 \section{\label{5} Conclusion}
@@ -515,7 +498,7 @@ trade costs cannot be reduced to tariffs or transportation
 costs, and to insist on the need for a quantification of all
 the impediments to international trade. But the concept of
 trade costs loses part of its interest if there are no causal
-alternatives to explain trade patterns. Such a definition is
+alternatives to explain changing trade patterns. Such a definition is
 therefore bound to reword the information given by trade
 flows relative to output, such as contained in an openness
 ratio.
