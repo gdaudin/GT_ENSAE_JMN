@@ -5,6 +5,13 @@ if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du comme
 use doubletable, replace
 // use doubletable generated in 3.
 
+
+local sqrlist "UK FRA USA IND BEL CAN GER ITA SPA"
+replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry2)!=0
+keep if sqr_sample==1
+
+
+
 gen weight= gdp2
 
 gen s1=gdp1/(gdp1+gdp2)
@@ -113,7 +120,7 @@ foreach year of num 1913 2000 {
 		keep ctry1 gmdlnterm1 gmdlnterm2 gmdlnterm3 gmdlnterm4 gmdlnleftterm
 	keep if _n==1
 	replace ctry1 ="Average"
-	gen method="JMN 2011, GDP-weighted"
+	gen method="JMN by country, GDP-weighted"
 	rename gm* *
 	
 	save blink.dta, replace
@@ -124,7 +131,7 @@ foreach year of num 1913 2000 {
 	
 	
 	keep ctry1 mdlnterm1 mdlnterm2 mdlnterm3 mdlnterm4 mdlnleftterm
-	gen method = "JMN 2011, GDP-weighted"
+	gen method = "JMN by country, GDP-weighted"
 	sort ctry1
 	rename m* *
 	rename ethod method
@@ -142,7 +149,7 @@ foreach year of num 1913 2000 {
 		keep ctry1 gunwmdlnterm1 gunwmdlnterm2 gunwmdlnterm3 gunwmdlnterm4 gunwmdlnleftterm
 	keep if _n==1
 	replace ctry1 ="Average"
-	gen method ="JMN 2011, unweighted"
+	gen method ="JMN by country, unweighted"
 	rename gunwm* *
 	append using blink.dta
 	
@@ -154,7 +161,7 @@ foreach year of num 1913 2000 {
 	
 	restore
 	keep ctry1 munwdlnterm1 munwdlnterm2 munwdlnterm3 munwdlnterm4 munwdlnleftterm
-	gen method = "JMN 2011, unweighted"
+	gen method = "JMN by country, unweighted"
 	sort ctry1
 	rename munw* *
 	append using blink.dta
@@ -177,6 +184,7 @@ foreach year of num 1913 2000 {
 	
 	
 	texsave using "table-their-method-by-country-`year'.tex", frag varlabels replace bold("GDP-weighted average")
+	save "table-their-method-by-country-`year'.dta", replace
 
 }
 erase blouf.dta

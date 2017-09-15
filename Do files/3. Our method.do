@@ -170,12 +170,15 @@ foreach year of num 1913 2000 {
 	replace dlnterm4=round(dlnterm4*100,1)
 	replace dlnleftter=round(dlnleftterm*100,1)
 	
-	keep ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
-	order ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	gen method ="Our method"
+	
+	keep ctry1 method dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	order ctry1 method dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
 	
 	
 	
 	texsave using "table-our-method-`year'.tex", frag varlabels replace bold("GDP-weighted average")
+	save  "table-our-method-`year'.dta", replace
 
 }
 erase blouf.dta

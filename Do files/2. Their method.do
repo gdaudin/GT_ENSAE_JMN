@@ -123,7 +123,7 @@ foreach year of num 1913 2000 {
 	
 	keep if _n==1
 	keep ctry1 md*complete
-	replace ctry1="JMN 2011, GDP-weighted"
+	replace ctry1="GDP-weighted"
 	rename m*complete *
 	save blink.dta, replace
 	
@@ -131,7 +131,7 @@ foreach year of num 1913 2000 {
 	restore
 	keep if _n==1
 	keep ctry1 munwd*
-	replace ctry1="JMN 2011, unweighted"
+	replace ctry1="Unweighted"
 	rename munw* *
 	
 	
@@ -149,9 +149,13 @@ foreach year of num 1913 2000 {
 	replace dlnterm4=round(dlnterm4*100,1)
 	replace dlnleftterm=round(dlnleftterm*100,1)
 	
+	
+	gen method ="JMN 2011"
 	order ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
 	
+	
 	texsave using "JMN-`year'.tex", frag varlabels replace bold("JMN 2011, GDP-weighted")
+	save  "JMN-`year'.dta", replace
 }
 
 erase blouf.dta
