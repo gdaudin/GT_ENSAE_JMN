@@ -9,6 +9,9 @@
 \usepackage[T1]{fontenc}
 \emergencystretch=8em
 \usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
 
 
 
@@ -19,7 +22,7 @@
 \author[3]{Claire Labonne}
 \author[1]{Anne Muller}
 \author[4]{Céline Antonin}
-\author[5]{Guillaume Daudin\footnote{Corresponding author: guillaume.daudin@dauphine.fr. The authors thank Marc Adam, Marcelo Olarreaga and anonymous referees for their comments and questions}}
+\author[5]{Guillaume Daudin\footnote{Corresponding author: guillaume.daudin@dauphine.fr. The authors thank Marc Adam, Marcelo Olarreaga and anonymous referees for their comments and questions. Marc Adam pointed to us a slight data incoherence in Jacks \textit{et al.}'s .dta files that we have corrected in the following analysis.}}
 \affil[1] {ENSAE, French National School of Statistics and Economic Administration, 3, avenue Pierre Larousse, 92245 Malakoff, FRANCE}
 \affil[2] {Columbia University, 10025 New York NY, USA}
 \affil[3] { Paris School of Economics / Université Paris 1 Panthéon Sorbonne -- ACPR - Banque de France, 75009, PARIS, FRANCE}
@@ -43,7 +46,7 @@ Université Paris-Dauphine, PSL Research University, LEDa, UMR [225], DIAL, 7501
 They argue that the reduction in trade costs was the main driving force of trade growth during the first globalization (1870-1913), whereas economic expansion was the main driving force during the second globalization (1950-2000).
 This potentially important result is driven by the use of an \textit{ad hoc} aggregation method of bilateral trade costs to the country and global level.
 What \cite{JMN2011} capture is the difference in the relative starting trade of dyads experiencing faster trade growth in the first and second globalization.
-More generally, we cast doubts on the possibility to reach conclusions of such nature with a method that excludes a priori changes in non-trade costs determinants of openness rates and hence can only rephrases the information contained in openness ratios.
+More generally, we cast doubts on the possibility to reach conclusions on aggregate costs with a method that excludes a priori changes in non-trade costs determinants of openness rates and hence can only rephrases the information contained in them.
 \end{abstract}
 
 
@@ -190,7 +193,7 @@ Examining this equation, it is clear that the method consists in determining the
 A method that uses data on trade flows and output alone can only teach us so much about their determinants as non-trade costs determinants of trade flows (e.g. the elasticity of substitution and the importance of vertical specialization) are treated as parameters.
 
 Still, when we decompose the level of exportations of a country simply as the product of its GDP and its openness ratio (see table \ref{OR}) we find that the increase in exportations is mainly explained by GDP growth for the large majority of the 27 countries in the data.\footnote{We follow the authors in interpreting log differences as percentages. However, one should keep in mind that given the size of the changes, this is a very inexact approximation.}
-On average, this decomposition attributes 74\% (183/246) of the growth in trade to the increase in GDP in the second globalization and 60\% in the first globalization.
+On average, this decomposition attributes 74\% (183/246) of the growth in trade to the increase in GDP in the second globalization and 62\% in the first globalization.
 This is very much in contrast to  Jacks \textit{et al.}\footnote{Contributions of growth in income similarity and of change in multilateral factors are negative.} :
  
 \begin{quote}
@@ -203,79 +206,54 @@ As the next section shows, this contrast it is actually driven by the \textit{ad
 
 
 
-\begin{table}
-\centering
-\begin{tabular}{|r|r|r|r|r|r|r|}
-\hline
- & \multicolumn{3}{|c|}{First Globalization 1870-1913} & \multicolumn{3}{|c|}{Second Globalization 1950-2000}\\
-\hline
- & Exports & GDP & Openness Ratio & Exports & GDP & Openness Ratio\\
-\hline
-Argentina & 292 & 251 & 40 & 116 & 132 & -16\\
-\hline
-Austria & 89 & 102 & -13 & 379 & 185 & 194\\
-\hline
-Australia & 174 & 152 & 22 & 114 & 191 & -77\\
-\hline
-Belgium & 195 & 86 & 109 & 251 & 150 & 101\\
-\hline
-Brazil & 174 & 101 & 73 & 184 & 239 & -55\\
-\hline
-Canada & 233 & 170 & 64 & 258 & 192 & 66\\
-\hline
-Denmark & 200 & 113 & 87 & 230 & 142 & 88\\
-\hline
-France & 117 & 70 & 48 & 260 & 172 & 87\\
-\hline
-Germany & 168 & 119 & 48 & 391 & 175 & 216\\
-\hline
-Greece & 140 & 99 & 42 & 227 & 218 & 9\\
-\hline
-India & 147 & 41 & 105 & 161 & 216 & -54\\
-\hline
-Indonesia & 220 & 87 & 133 & 263 & 232 & 31\\
-\hline
-Italy & 151 & 83 & 69 & 335 & 188 & 147\\
-\hline
-Japan & 337 & 104 & 233 & 448 & 281 & 167\\
-\hline
-Mexico & 189 & 143 & 46 & 296 & 238 & 59\\
-\hline
-Netherlands & 230 & 92 & 138 & 298 & 173 & 125\\
-\hline
-New Zealand & 184 & 186 & -2 & 307 & 133 & 174\\
-\hline
-Norway & . & . & . & 70 & 181 & -111\\
-\hline
-Philippines & 218 & 92 & 126 & 237 & 213 & 24\\
-\hline
-Portugal & 74 & 57 & 17 & 319 & 208 & 111\\
-\hline
-Spain & 171 & 76 & 96 & 496 & 230 & 266\\
-\hline
-Sri Lanka & 172 & 92 & 81 & 39 & 201 & -161\\
-\hline
-Sweden & 150 & 92 & 58 & 240 & 134 & 106\\
-\hline
-Switzerland & 105 & 108 & -3 & 250 & 132 & 118\\
-\hline
-UK & 125 & 81 & 44 & 196 & 122 & 74\\
-\hline
-Uruguay & 261 & 165 & 96 & 48 & 94 & -46\\
-\hline
-USA & 208 & 166 & 42 & 241 & 170 & 72\\
-\hline
- &  &  &  &  &  & \\
-\hline
-Average & \textbf{178} & \textbf{107} & \textbf{71} & \textbf{246} & \textbf{183} & \textbf{63}\\
-\hline
-\end{tabular}
+\begin{table}[tbp] \centering
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\begin{tabularx}{\textwidth}{lCCCCCC}
+
+\toprule
+& \multicolumn{3}{c}{First Globalization 1870-1913} & \multicolumn{3}{c}{Second Globalization 1950-2000}\\
+{}&{Exports}&{GDP}&{Openness Ratio}&{Exports}&{GDP}&{Openness Ratio} \tabularnewline
+\midrule\addlinespace[1.5ex]
+ARG&292&251&40&116&132&-16 \tabularnewline
+AUH&89&102&-13&379&185&194 \tabularnewline
+AUS&174&152&22&114&191&-77 \tabularnewline
+BEL&195&86&109&251&150&101 \tabularnewline
+BRA&174&101&73&184&239&-55 \tabularnewline
+CAN&233&170&64&258&192&66 \tabularnewline
+DEN&200&113&87&230&142&88 \tabularnewline
+FRA&117&70&48&260&172&87 \tabularnewline
+GER&168&119&48&391&175&216 \tabularnewline
+GRE&140&99&42&227&218&9 \tabularnewline
+IND&147&41&105&161&216&-54 \tabularnewline
+INN&220&87&133&263&232&31 \tabularnewline
+ITA&151&83&69&335&188&147 \tabularnewline
+JAP&337&104&233&448&281&167 \tabularnewline
+MEX&189&143&46&296&238&59 \tabularnewline
+NET&230&92&138&298&173&125 \tabularnewline
+NEW&184&186&-2&307&133&174 \tabularnewline
+NOR&&&&70&181&-111 \tabularnewline
+PHI&218&92&126&237&213&24 \tabularnewline
+POR&74&57&17&319&208&111 \tabularnewline
+SPA&171&76&96&496&230&266 \tabularnewline
+SRI&172&92&81&39&201&-161 \tabularnewline
+SWE&150&92&58&240&134&106 \tabularnewline
+SWI&105&108&-3&250&132&118 \tabularnewline
+UK&125&81&44&196&122&74 \tabularnewline
+URU&261&165&96&48&94&-46 \tabularnewline
+USA&208&166&42&241&170&72 \tabularnewline
+\textbf{Average}&\textbf{182}&\textbf{113}&\textbf{69}&\textbf{246}&\textbf{183}&\textbf{63} \tabularnewline
+\bottomrule \addlinespace[1.5ex]
+
+\end{tabularx}
 \caption{Decomposition of the growth of exportations between
 GDP growth and Openness ratio growth, log differences (interpreted as percentages).
 Figures for Norway are not given because the dissolution of the
 union between Norway and Sweden (1905) makes them
 meaningless.}\label{OR}
 \end{table}
+
+
 
 \section{\label{2} \textit{Ad hoc} aggregation of trade costs}
 
@@ -299,7 +277,7 @@ its trading partners. Indeed, using a two-countries model where
 all trade partners of country $i$ are treated as one single
 country provides an aggregate measure of trade costs that does
 not rely on any \textit{ad hoc} aggregation method but instead on
-microfoundations. 
+microfoundations. The drawback of this method is that it is very data-intensive. It requires the knowledge of all bilateral trade flows between the countries in the data. 
 
 Let us note $\upsilon_{i}$ the corresponding trade cost faced
 by country $i$ with all its trading partners in the data. Its
@@ -317,30 +295,24 @@ imports of $i$ from and to its trade partners in the data, and
 $x_{pp}$ is the volume of trade within and between the trading
 partners present in the data. This `domestic trade' variable
 now
-includes cross-border trade. The problem with this method is that it is very data-intensive. It requires the knowledge of all bilateral trade flows between the countries in the data. \\
+includes cross-border trade. \\
 
-Compare this with Jacks \textit{et al.}'s  method : 
+Compare this with Jacks \textit{et al.}'s  method to measure the mean trade cost faced by a country : 
 \begin{eqnarray}
 1+\tau_i&=& \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left(1+\tau_{ij}\right)}
 = \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left( \frac{x_{ii} x_{jj}}{x_{ij} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}} }
 \end{eqnarray}
 
-Using this measure of trade costs, we provide the same
-decomposition in four terms of the increase in trade flows
-during the two globalizations as in the authors' article for
-the countries with the most trade partners available in the
-data (France (24), the UK (25), the USA (23)). We also provide
-the unweighted and end-of-period-GDP-weighted averages for all
-countries in the sample. Results are displayed in tables
-\ref{glob1} and \ref{glob2} along with the results with the
+To illustrate the practical difference between these two methods, we provide the same decomposition in four terms of the increase in trade flows during the two globalizations as in the authors' article for the countries with the most trade partners available in the data (France (24), the UK (25), the USA (23)).
+This requires studying only trade between Belgium, Canada, France, Germany, India, Italy, Spain, United Kingdom and United States of America, as this is the largest set in the data where all bilateral trade flows are available. 
+We also provide the unweighted and end-of-period-GDP-weighted averages for all countries in the sample. 
+Results are displayed in tables \ref{glob1} and \ref{glob2} along with the results with the
 Jacks \textit{et al.}'s method.\footnote{They include unweighted and
 end-of-period-GPD-weighted averages over country dyads of
-bilateral trade costs, such as provided in \cite{JMN2011}. We
-also display for France, the UK and the USA the trade cost
-measure averaged over trading partners faced by one country, as
-the results are presented (with a smaller data set) in
-\cite{JMN2008, JMN2010}. We also provide both averages of this
-measure over all countries in the data set.}\\
+bilateral trade costs, such as provided in \cite{JMN2011}.
+We also display for France, the UK and the USA the trade cost measure averaged over trading partners faced by one country, as the results are presented (with a smaller data set) in
+\cite{JMN2008, JMN2010}.
+We also provide both averages of this measure over all countries in the data set.}\\
 
 \begin{table}
 \centering

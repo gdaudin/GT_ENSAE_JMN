@@ -33,3 +33,45 @@ sort year ctry1 ctry2
 replace dlnexp=dlnexp*100
 replace dlngdp=dlngdp*100
 replace dlnor=dlnor*100
+
+
+drop if year==1939
+
+keep ctry1 year dlnexp dlngdp dlnor
+
+replace dlnexp=. if ctry1=="NOR" & year==1913
+replace dlngdp=. if ctry1=="NOR" & year==1913
+replace dlnor=. if ctry1=="NOR" & year==1913
+
+reshape wide dlnexp dlngdp dlnor, i(ctry1) j(year)
+
+
+format dlnexp1913-dlnor2000 %9.0f
+label var dlnexp1913 "Exports"
+label var dlnexp2000 "Exports"
+label var dlngdp1913 "GDP"
+label var dlngdp2000 "GDP"
+label var dlnor1913 "Openness Ratio"
+label var dlnor2000 "Openness Ratio"
+
+preserve
+collapse (mean) dlnexp1913-dlnor2000
+gen ctry1="Average"
+save blink, replace
+restore
+append using blink
+erase blink.dta
+
+
+replace dlnexp1913=round(dlnexp1913,1)
+replace dlnexp2000=round(dlnexp2000,1)
+replace dlngdp1913=round(dlngdp1913,1)
+replace dlngdp2000=round(dlngdp2000,1)
+replace dlnor1913=round(dlnor1913,1)
+replace dlnor2000=round(dlnor2000,1)
+
+texsave using table1.tex, frag varlabels replace bold("Average")
+
+
+
+

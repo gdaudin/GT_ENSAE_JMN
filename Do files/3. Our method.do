@@ -32,6 +32,14 @@ sort ctry1 ctry2 year
 drop amer asia euro amerasia ameuro eurasia complete
 
 save doubletable, replace
+/*
+local sqrlist "UK FRA USA IND BEL CAN GER ITA SPA"
+replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry2)!=0
+keep if sqr_sample==1
+
+blink
+*/
+
 
 // Building upsilon
 bysort ctry1 year: egen x12=total(trade12)
@@ -117,4 +125,51 @@ bysort year: egen mwdlnterm3=total(aux3/totalweight)
 bysort year: egen mwdlnterm4=total(aux4/totalweight)
 bysort year: egen mwdlnleftterm=total(aux0/totalweight)
 
-keep if ctry1=="FRA"|ctry1=="UK"|ctry1=="USA"
+save blouf.dta, replace
+
+foreach year of num 1913 2000 {
+	use blouf.dta, clear
+
+	keep if (ctry1=="FRA"|ctry1=="UK"|ctry1=="USA") & year==`year'
+	
+	
+	preserve
+	keep ctry1 mwdlnterm1 mwdlnterm2 mwdlnterm3 mwdlnterm4 mwdlnleftterm
+	keep if _n==1
+	replace ctry1 ="GDP-weighted average"
+	rename mw* *
+	
+	save blink.dta, replace
+	
+	restore
+	preserve
+	keep ctry1 mdlnterm1 mdlnterm2 mdlnterm3 mdlnterm4 mdlnleftterm
+	keep if _n==1
+	replace ctry1 ="Unweighted average"
+	rename m* *
+	append using blink.dta
+	save blink.dta, replace
+	
+	
+	restore
+	keep ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	sort ctry1
+	append using blink.dta
+	erase blink.dta
+	
+	
+	replace dlnterm1=round(dlnterm1*100,1)
+	replace dlnterm2=round(dlnterm2*100,1)
+	replace dlnterm3=round(dlnterm3*100,1)
+	replace dlnterm4=round(dlnterm4*100,1)
+	replace dlnleftter=round(dlnleftterm*100,1)
+	
+	keep ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	order ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	
+	
+	
+	texsave using "table-our-method-`year'.tex", frag varlabels replace bold("GDP-weighted average")
+
+}
+erase blouf.dta
