@@ -1,4 +1,7 @@
-cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+*cd "C:\Users\Packabell\Documents\Courses\JIE\Stata"
+
+if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du commerce - ancien ENSAE/Stata"
+
 use table, replace
 
 gen weight= gdp1+gdp2
@@ -99,3 +102,50 @@ bysort year: egen munwdlnterm2=mean(dlnterm2)
 bysort year: egen munwdlnterm3=mean(dlnterm3)
 bysort year: egen munwdlnterm4=mean(dlnterm4)
 
+
+***
+
+
+save blouf.dta, replace
+
+foreach year of num 1913 2000 {
+	use blouf.dta, clear
+	keep if year==`year'
+	
+	
+	preserve
+	
+	keep if _n==1
+	keep ctry1 md*complete
+	replace ctry1="JMN 2011, GDP-weighted"
+	rename m*complete *
+	save blink.dta, replace
+	
+	
+	restore
+	keep if _n==1
+	keep ctry1 munwd*
+	replace ctry1="JMN 2011, unweighted"
+	rename munw* *
+	
+	
+	
+	append using blink.dta
+	
+	erase blink.dta
+	
+	
+	
+	
+	replace dlnterm1=round(dlnterm1*100,1)
+	replace dlnterm2=round(dlnterm2*100,1)
+	replace dlnterm3=round(dlnterm3*100,1)
+	replace dlnterm4=round(dlnterm4*100,1)
+	replace dlnleftterm=round(dlnleftterm*100,1)
+	
+	order ctry1 dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	
+	texsave using "JMN-`year'.tex", frag varlabels replace bold("JMN 2011, GDP-weighted")
+}
+
+erase blouf.dta
