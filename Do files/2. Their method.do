@@ -4,6 +4,12 @@ if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du comme
 
 use table, replace
 
+
+local sqrlist "UK FRA USA IND BEL CAN GER ITA SPA"
+replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry2)!=0
+keep if sqr_sample==1
+
+
 gen weight= gdp1+gdp2
 
 gen s1=gdp1/(gdp1+gdp2)
