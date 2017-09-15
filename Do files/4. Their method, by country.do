@@ -108,32 +108,48 @@ foreach year of num 1913 2000 {
 	
 	
 	preserve
-	keep ctry1 gunwmdlnterm1 gunwmdlnterm2 gunwmdlnterm3 gunwmdlnterm4 gunwmdlnleftterm
-	keep if _n==1
-	replace ctry1 ="Average"
-	gen method ="JMN 2011, unweighted average"
-	rename gunwm* *
 	
-	save blink.dta, replace
 	
-	restore
-	preserve
-	keep ctry1 gmdlnterm1 gmdlnterm2 gmdlnterm3 gmdlnterm4 gmdlnleftterm
+		keep ctry1 gmdlnterm1 gmdlnterm2 gmdlnterm3 gmdlnterm4 gmdlnleftterm
 	keep if _n==1
 	replace ctry1 ="Average"
 	gen method="JMN 2011, GDP-weighted"
 	rename gm* *
+	
+	save blink.dta, replace
+
+	
+	restore
+	preserve
+	
+	
+	keep ctry1 mdlnterm1 mdlnterm2 mdlnterm3 mdlnterm4 mdlnleftterm
+	gen method = "JMN 2011, GDP-weighted"
+	sort ctry1
+	rename m* *
+	rename ethod method
+	
+
+	
 	append using blink.dta
 	save blink.dta, replace
 	
 	
 	restore
-	keep ctry1 mdlnterm1 mdlnterm2 mdlnterm3 mdlnterm4 mdlnleftterm
-	gen method = "JMN 2011, GDP-weighted"
-	sort ctry1
-	rename m* *
+	preserve
+	
+	
+		keep ctry1 gunwmdlnterm1 gunwmdlnterm2 gunwmdlnterm3 gunwmdlnterm4 gunwmdlnleftterm
+	keep if _n==1
+	replace ctry1 ="Average"
+	gen method ="JMN 2011, unweighted"
+	rename gunwm* *
 	append using blink.dta
+	
 	save blink.dta, replace
+	
+	
+	
 	
 	
 	restore
@@ -160,7 +176,7 @@ foreach year of num 1913 2000 {
 	
 	
 	
-	texsave using "table-our-method-`year'.tex", frag varlabels replace bold("GDP-weighted average")
+	texsave using "table-their-method-by-country-`year'.tex", frag varlabels replace bold("GDP-weighted average")
 
 }
 erase blouf.dta
