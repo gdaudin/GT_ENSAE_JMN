@@ -32,13 +32,13 @@ sort ctry1 ctry2 year
 drop amer asia euro amerasia ameuro eurasia complete
 
 save doubletable, replace
-/*
+
 
 
 local sqrlist "UK FRA USA IND BEL CAN GER ITA SPA"
 replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry2)!=0
 keep if sqr_sample==1
-*/
+
 
 // Building upsilon
 bysort ctry1 year: egen x12=total(trade12)
