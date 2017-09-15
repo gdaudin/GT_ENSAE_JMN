@@ -33,13 +33,12 @@ drop amer asia euro amerasia ameuro eurasia complete
 
 save doubletable, replace
 /*
+
+
 local sqrlist "UK FRA USA IND BEL CAN GER ITA SPA"
 replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry2)!=0
 keep if sqr_sample==1
-
-blink
 */
-
 
 // Building upsilon
 bysort ctry1 year: egen x12=total(trade12)
@@ -93,13 +92,18 @@ gen dlnterm3=term3[_n]-term3[_n-1]
 gen dlnterm4=term4[_n]-term4[_n-1]
 keep if year==1913|year==1939|year==2000
 
+
 // Careful limit to one pair of each
-keep if ctry1=="ARG" & ctry2=="BEL"|ctry1=="AUH" & ctry2=="BEL"|ctry1=="AUS" & ctry2=="FRA"|ctry1=="BEL" & ctry2=="ARG"|ctry1=="BRA"	& ctry2=="BEL"|ctry1=="CAN"	& ctry2=="BEL"|ctry1=="DEN"	& ctry2=="BEL"|ctry1=="FRA"	& ctry2=="ARG"|ctry1=="GER"	& ctry2=="BEL"|ctry1=="GRE"	& ctry2=="FRA"|ctry1=="IND"	& ctry2=="AUS"|ctry1=="INN"	& ctry2=="AUS"|ctry1=="ITA"	& ctry2=="AUH"|ctry1=="JAP"	& ctry2=="FRA"|ctry1=="MEX"	& ctry2=="FRA"|ctry1=="NET"	& ctry2=="BEL"|ctry1=="NEW"	& ctry2=="AUS"|ctry1=="NOR"	& ctry2=="BEL"|ctry1=="PHI"	& ctry2=="UK"|ctry1=="POR"	& ctry2=="BEL"|ctry1=="SPA"	& ctry2=="BEL"|ctry1=="SRI"	& ctry2=="IND"|ctry1=="SWE"	& ctry2=="BEL"|ctry1=="SWI"	& ctry2=="BEL"|ctry1=="UK"& ctry2=="ARG"|ctry1=="URU"	& ctry2=="BEL"|ctry1=="USA"	& ctry2=="ARG"
+
+keep if ctry1>ctry2
+
 
 //checking
 gen checking=leftterm-term1-term2-term3-term4
 drop checking
 //ok
+
+
 
 bysort year: egen mdlnterm1=mean(dlnterm1)
 bysort year: egen mdlnterm2=mean(dlnterm2)
@@ -124,6 +128,8 @@ bysort year: egen mwdlnterm2=total(aux2/totalweight)
 bysort year: egen mwdlnterm3=total(aux3/totalweight)
 bysort year: egen mwdlnterm4=total(aux4/totalweight)
 bysort year: egen mwdlnleftterm=total(aux0/totalweight)
+
+bys ctry1 year : keep if _n==1
 
 save blouf.dta, replace
 
