@@ -66,11 +66,12 @@ bysort ctry1 year: egen munwdlnterm4=mean(dlnterm4)
 //Averaging over ctry1
 keep if ctry1=="ARG" & ctry2=="USA"|ctry1=="USA" & ctry2=="USA"|ctry1=="AUS" & ctry2=="USA"|ctry1=="BEL" & ctry2=="USA"|ctry1=="BRA" & ctry2=="USA"|ctry1=="CAN"	& ctry2=="USA"|ctry1=="DEN"	& ctry2=="USA"|ctry1=="FRA"	& ctry2=="USA"|ctry1=="GER"	& ctry2=="USA"|ctry1=="GRE"	& ctry2=="FRA"|ctry1=="IND"	& ctry2=="USA"|ctry1=="INN"	& ctry2=="USA"|ctry1=="ITA"	& ctry2=="USA"|ctry1=="JAP"	& ctry2=="USA"|ctry1=="MEX"	& ctry2=="USA"|ctry1=="NET"	& ctry2=="USA"|ctry1=="NEW"	& ctry2=="USA"|ctry1=="NOR"	& ctry2=="USA"|ctry1=="PHI"	& ctry2=="USA"|ctry1=="POR"	& ctry2=="USA"|ctry1=="SPA"	& ctry2=="USA"|ctry1=="SRI"	& ctry2=="USA"|ctry1=="SWE"	& ctry2=="USA"|ctry1=="SWI"	& ctry2=="USA"|ctry1=="UK"& ctry2=="USA"|ctry1=="URU"	& ctry2=="USA"|ctry1=="USA"	& ctry2=="FRA"
 
-//Unweightedbysort year: egen gunwmdlenleftterm=mean(mdlnleftterm)
-bysort year: egen gunwmdlenterm1=mean(mdlnterm1)
-bysort year: egen gunwmdlenterm2=mean(mdlnterm2)
-bysort year: egen gunwmdlenterm3=mean(mdlnterm3)
-bysort year: egen gunwmdlenterm4=mean(mdlnterm4)
+//Unweighted
+bysort year: egen gunwmdlnleftterm=mean(mdlnleftterm)
+bysort year: egen gunwmdlnterm1=mean(mdlnterm1)
+bysort year: egen gunwmdlnterm2=mean(mdlnterm2)
+bysort year: egen gunwmdlnterm3=mean(mdlnterm3)
+bysort year: egen gunwmdlnterm4=mean(mdlnterm4)
 
 //Weighted
 drop aux0 aux1 aux2 aux3 aux4 weight totalweight
@@ -94,3 +95,72 @@ drop aux0 aux1 aux2 aux3 aux4
 // NB: when weigthed always weighted, when not never (country 1 and country 2)
 
 keep if ctry1=="FRA"|ctry1=="UK"|ctry1=="USA"
+
+
+bys ctry1 year : keep if _n==1
+
+save blouf.dta, replace
+
+foreach year of num 1913 2000 {
+	use blouf.dta, clear
+
+	keep if (ctry1=="FRA"|ctry1=="UK"|ctry1=="USA") & year==`year'
+	
+	
+	preserve
+	keep ctry1 gunwmdlnterm1 gunwmdlnterm2 gunwmdlnterm3 gunwmdlnterm4 gunwmdlnleftterm
+	keep if _n==1
+	replace ctry1 ="Average"
+	gen method ="JMN 2011, unweighted average"
+	rename gunwm* *
+	
+	save blink.dta, replace
+	
+	restore
+	preserve
+	keep ctry1 gmdlnterm1 gmdlnterm2 gmdlnterm3 gmdlnterm4 gmdlnleftterm
+	keep if _n==1
+	replace ctry1 ="Average"
+	gen method="JMN 2011, GDP-weighted"
+	rename gm* *
+	append using blink.dta
+	save blink.dta, replace
+	
+	
+	restore
+	keep ctry1 mdlnterm1 mdlnterm2 mdlnterm3 mdlnterm4 mdlnleftterm
+	gen method = "JMN 2011, GDP-weighted"
+	sort ctry1
+	rename m* *
+	append using blink.dta
+	save blink.dta, replace
+	
+	
+	restore
+	keep ctry1 munwdlnterm1 munwdlnterm2 munwdlnterm3 munwdlnterm4 munwdlnleftterm
+	gen method = "JMN 2011, unweighted"
+	sort ctry1
+	rename munw* *
+	append using blink.dta
+	save blink.dta, replace
+	
+	
+	
+	erase blink.dta
+	
+	
+	replace dlnterm1=round(dlnterm1*100,1)
+	replace dlnterm2=round(dlnterm2*100,1)
+	replace dlnterm3=round(dlnterm3*100,1)
+	replace dlnterm4=round(dlnterm4*100,1)
+	replace dlnleftter=round(dlnleftterm*100,1)
+	
+	keep ctry1 method dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	order ctry1 method dlnterm1 dlnterm2 dlnterm3 dlnterm4 dlnleftterm
+	
+	
+	
+	texsave using "table-our-method-`year'.tex", frag varlabels replace bold("GDP-weighted average")
+
+}
+erase blouf.dta
