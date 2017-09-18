@@ -6,6 +6,7 @@ if "`c(username)'"=="guillaumedaudin" cd "~/Documents/Recherche/Coûts du comme
 
 use table, replace
 
+
 keep if year==1870|year==1913|year==1921|year==1939|year==1950|year==2000
 sort ctry1 ctry2 year
 gen dlnxijxji=0.5*(ln(trade12[_n])+ln(trade21[_n])-ln(trade12[_n-1])-ln(trade21[_n-1]))
@@ -16,8 +17,13 @@ keep if year==1913 | year==2000
 
 scatter dlnxijxji abscisse, by(year)
 
+twoway (scatter dlnxijxji abscisse) (lfit dlnxijxji abscisse), by(year)
+
+
 reg dlnxijxji abscisse if year==1913 
 reg dlnxijxji abscisse if year==2000
+
+blif
 
 gen firstglob=(year==2000)
 
