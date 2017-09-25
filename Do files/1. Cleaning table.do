@@ -42,9 +42,13 @@ gen tauij=((trade11*trade22)/(trade12*trade21))^(1/(2*(sigma-1)))-1
 // No more 0.8
 
 bysort year ctry1: egen aux12=total(trade12)
+label var aux12 "sum of ctry1 exports in the sample for a given year"
 gen expcorr1=exp1-aux12+trade12
+label var expcorr1 "Total X of ctry1 - sum of ctry1 X in the sample + X from ctry1 to ctry2"
 bysort year ctry2: egen aux21=total(trade21)
+label var aux21 "sum of ctry2 exports in the sample for a given year"
 gen expcorr2=exp2-aux21+trade21
+label var expcorr2 "Total X of ctry2 - sum of ctry2 X in the sample + X from ctry2 to ctry1"
 drop aux12 aux21
 
 

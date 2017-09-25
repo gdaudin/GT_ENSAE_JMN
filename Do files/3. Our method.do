@@ -40,12 +40,41 @@ replace sqr_sample=1 if strpos("`sqrlist'", ctry1)!=0 & strpos("`sqrlist'", ctry
 keep if sqr_sample==1
 
 
-// Building upsilon
 bysort ctry1 year: egen x12=total(trade12)
 bysort ctry1 year: egen x21=total(trade21)
+
+
+//Computation x22
+
+****Original method by Dupraz et al.
 bysort ctry1 year: egen totalgdp2=total(gdp2)
 bysort ctry1 year: egen totalexp2=total(expcorr2)
-gen x22=totalgdp2-totalexp2
+gen x22_old=totalgdp2-totalexp2
+drop totalexp2 totalgdp2
+
+****Marc Adam's method
+
+bysort ctry1 year: egen totalgdp2=total(gdp2)
+bysort ctry2 year: egen totxpo=total(trade21)
+bysort ctry1 year: egen totxpo2=total(totxpo)
+bysort ctry1 year: egen totx_p1=total(exp2)
+gen totx_p=totx_p1-totxpo2 + x21
+gen x22_ma=totalgdp2-totx_p
+
+**** My method
+
+bysort ctry1 year : egen total_dom_trade_other = total(trade22)
+bysort year 	  : egen twice_total_ext_trade_in_sample = total (trade12)
+**Because each bilateral couple is present twice in the DB
+gen x22=  total_dom_trade_other + twice_total_ext_trade_in_sample/2 - x12 - x21
+
+
+corr x22_old x22_ma x22
+
+// Building upsilon
+
+
+
 gen x11=trade11
 
 scalar sigma=8
