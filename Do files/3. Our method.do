@@ -65,8 +65,7 @@ gen x22_ma=totalgdp2-totx_p
 
 bysort ctry1 year : egen total_dom_trade_other = total(trade22)
 bysort year 	  : egen twice_total_ext_trade_in_sample = total (trade12)
-**Because each bilateral couple is present twice in the DB
-gen x22=  total_dom_trade_other + twice_total_ext_trade_in_sample/2 - x12 - x21
+gen x22=  total_dom_trade_other + twice_total_ext_trade_in_sample - x12 - x21
 
 
 corr x22_old x22_ma x22
