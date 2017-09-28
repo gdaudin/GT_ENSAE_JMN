@@ -88,24 +88,23 @@ measure.'' (p. 196)}.
 
 This is potentially an important result that sheds light on the globalization processes.
 However, this result is actually driven by an \textit{ad hoc} method of aggregation that captures structure effects.
-The authors use a weighted arithmetic average of bilateral transportation costs to compute country-specific trade costs. Putting aside the weight, in a simple symmetric three-country model, we show that this is the equivalent to using a power or generalized mean with exponent $1/(1-\sigma)$ on the value of dyadic trade flows\footnote{namely trade flows between a pair of countries} ($\sigma > 1$ is elasticity of substitution).
-In contrast, a theoretically justified method would use a simple arithmetic mean of the value of the dyadic trade flow. 
+The authors use a weighted arithmetic average of their measure of bilateral trade costs to compute country-specific trade costs. Putting aside the weight, this is equivalent to using a power mean with exponent $1/(1-\sigma)$ of the values of dyadic trade flows ($\sigma > 1$ is the elasticity of substitution).
+In contrast, we show that an aggregation method theoretically rooted in \cite{AW2003}'s model would use a simple arithmetic mean of the value of the dyadic trade flows. 
 Because $1/(1-\sigma)$ < 0, the importance of small dyadic trade flows in the computation of country-specific trade costs is too large in the authors' computations.
-This is not compensated by the weight they use (end-of-period GDP).
-Their conclusion on the difference between the two globalization periods comes from the fact that the dyads with the fastest growing trade in the first wave of globalization start with very small trade; this is not the case in the second wave of globalization.
+This is not compensated by the weight they use (end-of-period GDP). The authors' conclusion on the difference between the two globalization periods comes from the fact that the dyads with the fastest growing trade in the first wave of globalization start with very small trade; this is not the case in the second wave of globalization.
+Indeed, we show that using our theory-based aggregation method, there is no difference in nature between the two globalizations.
 
-In this paper, we use a three-country version of \cite{AW2003}'s model for the aggregation of bilateral trade costs and show that there was no difference in nature between the two globalizations.
 More generally, we cast doubts on the possibility to distinguish between the impact of trade costs and the impact of economic expansion through an approach that relies solely on the study of trade flows and excludes \textit{a priori} other possible causes for the evolution of openness rates, like the evolution of vertical specialization and changes in the elasticity of substitution between domestic and foreign goods.
 Deducing trade costs from trade flows, and then using trade costs to explain trade flows is essentially a circular reasoning.
 Therefore, Jacks \textit{et al.}'s approach cannot be an alternative to traditional investigations of impediments to trade, such as commodity price gaps.
 
-In this paper, we first present Jacks \textit{et al.}'s approach of the
+We first present Jacks \textit{et al.}'s approach to the
 measure of trade costs, and insists on its relevance at the
 bilateral level to control for multilateral trade barriers in
-gravity regressions (section \ref{1}). We then highlight that the
+gravity regressions. We then highlight that the
 result on the difference of nature between the two globalizations
 is paradoxical since it cannot be deduced from a comparison of the
-evolution of openness ratios. Section \ref{2} shows that the
+evolution of openness ratios (section \ref{1}). Section \ref{2} shows that the
 conclusion is only driven by the authors' \textit{ad hoc} aggregation
 method. We propose a microfounded way to aggregate trade costs
 and the puzzle fades away. Section \ref{3} explores the reasons
@@ -135,8 +134,7 @@ Constant Elasticity of Substitution (CES) utility function.
 \cite{AW2003} use this model to microfound gravity equations
 and solve \cite{MAC}'s border puzzle by highlighting that
 bilateral trade does not depend on bilateral trade barriers \textit{per
-se}, but bilateral trade barriers relative to impediments to
-trade with all other trading partners. \cite{AW2003} show that the
+se}, but bilateral trade barriers relative to trade barriers with all other trading partners. \cite{AW2003} show that the
 equilibrium imposes the following relation:
 
 \begin{eqnarray}
@@ -169,7 +167,7 @@ becomes:
 
 The last equality defines $\tau_{ij}$, the geometric mean of trade costs from country $i$ to $j$ and $j$ to $i$ \emph{relative to intra-national trade costs in countries $i$ and $j$} (no assumption of symmetry of bilateral trade costs is imposed). It is the trade cost measure used by the authors.
 
-When departing from \cite{AW2003}'s multilateral resistances, the arbitrage condition Jacks \textit{et al.} base their computation on is an equality between a Marginal Rate of Substitution (MRS) and a price ratio for a CES utility function, or more precisely the product of two such equalities, one from the program of each trade partner. 
+When departing in this way from \cite{AW2003}'s multilateral resistances, the arbitrage condition Jacks \textit{et al.} base their computation on is an equality between a Marginal Rate of Substitution (MRS) and a price ratio for a CES utility function---or more precisely the product of two such equalities, one from the program of each trade partner. 
 Appendix \ref{A1} derives equation (\ref{keyeq}) this way without passing through multilateral resistance.
 The inference of trade costs from trade flows is tantamount to using the relation between quantities and prices given by a demand curve derived from fully specified exogenous preferences. This is of course no reason in itself to disregard the method.
 
@@ -177,7 +175,7 @@ Actually, this simple step offers a significant breakthrough in the microfoundat
 Comparing bilateral trade flows to intranational trade allows to integrate \cite{AW2003}'s caveat against omitted variable bias while getting rid of multilateral trade barriers.
 This is important when multilateral trade barriers cannot be estimated, e.g. when we only have data on trade for one country. \cite{JMN2011} take advantage of this feature in the fifth section of their article in regressing their measure of trade costs between two countries on a set of proxies for trade costs, such as the distance between trade partners, tariffs, or the volatility of the exchange rate. This is a very useful approach.\\
 
-However, Jacks, Meissner and Novy also suggest in their article that \cite{AW2003}'s model can be used to move away from the gravity regression approach. Instead of explaining trade flows by observable proxies for costs, they quantify the impact of all impediments to trade:
+However, Jacks, Meissner and Novy also suggest in their article that \cite{AW2003}'s model can be used to move away from the gravity regression approach. Instead of explaining trade flows by observable proxies for costs, they quantify the impact of all impediments to trade from trade flows:
 \emph{``We, therefore, infer trade costs from trade flows.
 This approach allows us to capture the combined magnitude of tariffs, transport costs, and all other macroeconomic frictions that impede international market integration but which are inherently difficult to observe.
 We emphasize that this approach of inferring trade costs from readily available trade data holds clear advantages for applied research: the constraints on enumerating — let alone, collecting data on — every individual trade cost element even over short periods of time makes a direct accounting approach impossible.''}(p.131).
@@ -192,11 +190,9 @@ where $s_i=y_i/(y_i+y_j)$.\\
 
 The authors hence attribute the evolution of bilateral trade flows to four components: output growth, increasing total income similarity, changes in trade costs and a trade diversion effect.
 
-Examining this equation, it is clear that the method consists in determining the evolution of one unobservable variable (trade costs) based on the evolution of two groups of observable variables (trade flows and output) and a number of hypotheses on preferences and parameters ($\sigma$ and the relationship between $x_{ii}$, output and trade). If one assumes that preferences and parameters do not change (though these points are partly addressed  in appendix B of  \cite{JMN2011}), all changes in trade costs must restate information contained in changes in the measure of trade flows relative to economic size, like an openness ratio defined for instance as the ratio of exportations to GDP. 
+The method consists in determining the evolution of one unobservable variable (trade costs) based on the evolution of two groups of observable variables (trade flows and output) and a number of hypotheses on preferences and parameters ($\sigma$ and the relationship between $x_{ii}$, output and trade). A method that uses data on trade flows and output alone can only teach us so much about their determinants since non-trade costs determinants of trade flows (e.g. the elasticity of substitution and the importance of vertical specialization) are treated as parameters. If one assumes that preferences and parameters do not change (though these points are partly addressed  in appendix B of  \cite{JMN2011}), all changes in trade costs must restate information contained in changes in the measure of trade flows relative to economic size, like an openness ratio defined for instance as the ratio of exportations to GDP. 
 
-A method that uses data on trade flows and output alone can only teach us so much about their determinants as non-trade costs determinants of trade flows (e.g. the elasticity of substitution and the importance of vertical specialization) are treated as parameters.
-
-Still, when we decompose the level of exportations of a country simply as the product of its GDP and its openness ratio (see table \ref{OR}) we find that the increase in exportations is mainly explained by GDP growth for the large majority of the 27 countries in the data.\footnote{We follow the authors in interpreting log differences as percentages. However, one should keep in mind that given the size of the changes, this is a very inexact approximation.}
+Yet, Jacks \emph{et al.}'s results seem to show otherwise. When we decompose the level of exportations of a country simply as the product of its GDP and its openness ratio (see table \ref{OR}) we find that for both globalizations the increase in exportations is mainly explained by GDP growth for the large majority of the 27 countries in the data.\footnote{We follow the authors in interpreting log differences as percentages. However, one should keep in mind that given the size of the changes, this is a very inexact approximation.}
 On average, this decomposition attributes 74\% (183/246) of the growth in trade to the increase in GDP in the second globalization and 62\% in the first globalization.
 This is very much in contrast to  Jacks \textit{et al.}\footnote{Contributions of growth in income similarity and of change in multilateral factors are negative.} :
  
@@ -206,10 +202,7 @@ This is very much in contrast to  Jacks \textit{et al.}\footnote{Contributions o
 
 This contrast between both decompositions of the growth of exports is at the center of the argument by Jack \textit{et al.}.
 It is surprising because it is not clear what is added by their method to the examination of the openness rates.
-As the next section shows, this contrast is actually driven by the \textit{ad hoc} way they aggregate trade costs.
-
-
-
+As the next section shows, this difference is actually driven by the \textit{ad hoc} way they aggregate the measure of bilateral trade costs.
 \begin{table}[tbp] \centering
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
@@ -275,13 +268,9 @@ all the results they reach that are not a reformulation of the
 evolution of the openness ratio during the two
 globalizations come from this aggregation method.\\
 
-\cite{AW2003}'s model can be used to calculate the aggregate
-trade costs a single country faces in its trade with all
-its trading partners. Indeed, using a two-countries model where
-all trade partners of country $i$ are treated as one single
-country provides an aggregate measure of trade costs that does
-not rely on any \textit{ad hoc} aggregation method but instead on
-microfoundations. The drawback of this method is that it is very data-intensive. It requires the knowledge of all bilateral trade flows between the countries in the data. 
+To show this point, we reproduce Jacks \emph{et al.}'s decomposition using instead an aggregation method theoretically derived from \cite{AW2003}'s model. We calculate the aggregate trade costs a single country faces with all its trading partners by considering the two-country version of the model where all trade partners of country $i$ are treated as a unique one.
+
+%The last sentence ""The drawback of..." seemed peripheral and a distraction from the main line of thought? Besides, it is not seem more data-intensive than Jacks et al's measure
 
 Let us note $\upsilon_{i}$ the corresponding trade cost faced by country $i$ with all its trading partners in the data. Its expression is given by Jacks \textit{et al.}'s key equation (\ref{keyeq}) applied to a two-countries model:
 
@@ -296,25 +285,23 @@ imports of $i$ from and to its trade partners in the data, and
 $x_{pp}$ is the volume of trade within and between the trading
 partners present in the data. This `domestic trade' variable
 now
-includes cross-border trade. \\
-
-Compare this with Jacks \textit{et al.}'s  method to measure the mean trade cost faced by a country : 
+includes cross-border trade. Compare this with Jacks \textit{et al.}'s  method to measure the mean trade cost faced by a country : 
 \begin{eqnarray}
 1+\tau_i&=& \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left(1+\tau_{ij}\right)}
 = \sum_{j \neq i}  {\frac{y_i}{\sum_{j \neq i} y_i} \left( \frac{x_{ii} x_{jj}}{x_{ij} x_{ji}}\right)^{\frac{1}{2(\sigma-1)}} }
  \label{jackssection3}
 \end{eqnarray}
 
-To illustrate the practical difference between these two methods, we provide the same decomposition in four terms of the increase in trade flows during the two globalizations as in the authors' article for the countries with the most trade partners available in the data (France (24), the UK (25), the USA (23)).
+Tables \ref{glob1} and \ref{glob2} provide the decomposition in four terms of the increase in trade flows during the two globalizations for our and Jacks \textit{et al.}'s aggregation methods, for the countries with the most trade partners available in the data (France (24), the UK (25), the USA (23)).
 This requires studying only trade between Belgium, Canada, France, Germany, India, Italy, Spain, United Kingdom and United States of America, as this is the largest set in the data where all bilateral trade flows are available. 
-We also provide the unweighted and end-of-period-GDP-weighted averages for all countries in the sample. 
-Results are displayed in tables \ref{glob1} and \ref{glob2} along with the results with the
-Jacks \textit{et al.}'s method.\footnote{They include unweighted and
-end-of-period-GPD-weighted averages over country dyads of
-bilateral trade costs, such as provided in \cite{JMN2011}.
-We also display for France, the UK and the USA the trade cost measure averaged over trading partners faced by one country, as the results are presented (with a smaller data set) in
-\cite{JMN2008, JMN2010}.
-We also provide both averages of this measure over all countries in the data set.}\\
+The tables also provide the unweighted and end-of-period-GDP-weighted averages for all countries in the sample.\footnote{The tables include unweighted and
+	end-of-period-GPD-weighted averages over country dyads of
+	bilateral trade costs, such as provided in \cite{JMN2011}.
+	We also display for France, the UK and the USA the trade cost measure averaged over trading partners faced by one country, as the results are presented (with a smaller data set) in
+	\cite{JMN2008, JMN2010}.
+	We also provide both averages of this measure over all countries in the data set.}\\
+
+
 
 
 \begin{table}[tbp] \centering
@@ -409,23 +396,21 @@ The contribution of output growth is constant for all countries in our method be
 \label{glob2}
 \end{table}
 
+Comparing the results for the two methods highlights how much the decomposition
+between the decrease in trade costs and income growth depends on the aggregation method. When we use the microfounded aggregation method, growth in output is the main driving force behind both waves of growth in international trade, contributing to about 60\% (202/333) in the first wave and 66\% (361/545) in the second one.\footnote{We selected the (GDP-weighted) average of our measure in order
+	to allow a clear comparison with Jacks \textit{et al.}'s results. There
+	is of course no rational for such a summary statistic, but the
+	results for France, the UK and the USA assure that the main
+	conclusion of this exercice does not depend on averaging over
+	countries.} These results are similar to the decomposition of trade flows between output and openness ratio in table \ref{OR}---62\% and 74\%---despite the sample change. Contrast this with Jack  \textit{et al.}'s results, respectively 46\% and 63\%.
 
-
-Tables \ref{glob1} and \ref{glob2} highlight how much the decomposition
-between the decrease in trade costs and the income growth depends on the aggregation technique. When we use the microfounded aggregation method,\footnote{We selected the (GDP-weighted) average of our measure in order
-to allow a clear comparison with Jacks \textit{et al.}'s results. There
-is of course no rational for such a summary statistic, but the
-results for France, the UK and the USA assure that the main
-conclusion of this exercice does not depend on averaging over
-countries.} 
-growth in output is the main driving force behind both waves of growth in international trade, contributing to about 60\% (202/333) in the first wave and 66\% (361/545) in the second one. Contrast this with Jack  \textit{et al.}'s results for this sample, respectively 46\% and 63\%.
-It is no coincidence if, despite the sample change, these results are similar to the ones in table \ref{OR}: 62\% (113/182) in the first globalization and 74\% (183/246) in the second one.
 
 \section{\label{3} Sensitivity of the trade cost measure to
 structure effects}
 
-The reason why Jacks \textit{et al.}'s aggregate measure of trade costs yields different conclusions compared to the micro-founded method (and openness rate) is its sensitivity to structure
-effects. To explain this idea, and for clarity purposes, let us move to a world of symmetric partners (domestic trade is equal in $i$ and $j$ and $x_{ij}$=$x_{ji}$).  Dyadic bilateral trade flows are not equal because some dyads are further apart than others. Equation (\ref{keyeq}) gives: 
+The reason why Jacks \textit{et al.}'s aggregate measure of trade costs yields different conclusions compared to the micro-founded method (and openness rates) is its sensitivity to structure
+effects. To explain this idea, and for clarity purposes, let us move to a world of symmetric partners: domestic trade is equal in $i$ and $j$, $x_{ii}=x_{jj}$, and imports are equal to exports, $x_{ij}$=$x_{ji}$. (Obviously, trade flows $x_{ij}$ can still differ across trading partners---otherwise there would be no aggregation problem). Equation (\ref{keyeq}) gives: 
+% The last sentence "Dyadic bilateral trade flows are not equal because some dyads are further apart than others." seemed out of context?
 
 \begin{eqnarray}
 1+\tau_{ij}= \left(\frac{x_{ii}}{x_{ji}}\right)^{\frac{1}{\sigma-1}}\label{tausimplified}
@@ -433,9 +418,9 @@ effects. To explain this idea, and for clarity purposes, let us move to a world 
 
 Note $\overline{a_j}$ the arithmetic mean
 of $a_j$ over $j$ ($\overline{a_j}=1/n \sum_{j=1}^{n}a_j$). One can
-then compare the unweighted average of $\tau_{ij}$ according to equation 
+write the unweighted average of $\tau_{ij}$ according to equation 
 (\ref{tausimplified}) and the measure derived from the
-two-country model in equation (\ref{keyeq2model}):
+two-country model in equation (\ref{keyeq2model}) as:
 
 \begin{eqnarray}
 1+\tau_i&=& x_{ii}^{\frac{1}{\sigma-1}} \left(\overline{{x_{ji}^{\frac{1}{1-\sigma}}}}\right) \label{tau}\\
@@ -444,8 +429,8 @@ two-country model in equation (\ref{keyeq2model}):
 
 Except for the factor $n$ (which is irrelevant since we are concerned with the evolution of the trade costs index) the two equations (\ref{tau}) and (\ref{upsilon}) differ only by the mean they use.
 Equation (\ref{upsilon}) uses the arithmetic mean of trade flows $x_{ji}$. Equation (\ref{tau}), because it uses an arithmetic mean over $\tau_{ij}$, uses a power mean of exponent  $1/(1-\sigma)$ of the value of trade flows, $\left(\overline{x_{ji}^{\frac{1}{1-\sigma}}}\right)^{1-\sigma}$.
-Appendix \ref{A2} establishes that the curvature properties of the function $x \rightarrow x^{\frac{1}{1-\sigma}}$, $\sigma>1$ tend to draw the growth of $\tau_i$ towards the values incurred between dyads that do not trade much together (small $x_{ij})$.
-On the contrary, $\upsilon_i$ puts more weight on big trade flows, in a way consistent with intuition.
+Appendix \ref{A2} establishes that the curvature properties of the function $x \rightarrow x^{\frac{1}{1-\sigma}}$, $\sigma>1$ tend to draw the growth of $\tau_i$ towards the values incurred with the trading partners with which $i$ does not trade much (small $x_{ij})$.
+On the contrary, $\upsilon_i$ puts more weight on the trading partners with big trade flows, simply because they account for a larger part of trade.
 %If the
 %arithmetic mean is independent of the distribution of the
 %importations over trade partners, the mean power $1/(1-\sigma)$
@@ -480,9 +465,8 @@ from trade flows simply reformulates the evolution of the
 openness ratio when it is used to calculate aggregate trade
 costs. Namely it only relates the two through an
 equality between the MRS and the price ratio. It appears more clearly
-when comparing the \textit{ad hoc} aggregation of bilateral trade costs
-to an aggregated measure of trade costs based on
-\cite{AW2003}'s model. Still, if their method fails to offer a
+when replacing the \textit{ad hoc} aggregation of bilateral trade costs
+with an aggregation method directly rooted in \cite{AW2003}'s model. Still, if their method fails to offer a
 full alternative to traditional investigations of trade costs,
 such as commodity price gaps, it provides an improvement in the
 microfoundation of gravity equations by substantially
@@ -599,7 +583,7 @@ m_{\phi}=\phi^{-1}\left(\frac{1}{n}\sum_{j=1}^n \phi(a_j)\right)
 
 Properties of these means can be deduced from the monotonicity
 and convexity properties of the function $\phi$. For instance,
-if $\phi$ is convex, the convexity inequality gives:
+if $\phi$ is convex, Jensen inequality gives:
 
 \begin{eqnarray*}
 \phi(m_{\phi})=\frac{1}{n}\sum_{j=1}^n\phi(a_j)\geq \phi\left(\frac{1}{n}\sum_{j=1}^n
@@ -607,23 +591,22 @@ a_j\right)
 \end{eqnarray*}
 
 If $\phi$, and hence $\phi^{-1}$, is also increasing, the
-$\phi$-mean is superior to the arithmetic mean. Intuitively,
+$\phi$-mean is greater than the arithmetic mean. Intuitively,
 the convexity of $\phi$ gives, relative to the arithmetic mean,
 more weight to the high values in the sample. Those results are
 reversed if $\phi$ is concave and increasing or convex and
 decreasing. Jacks, Meissner and Novy's aggregation method of
 the $\tau_{kj}$ is tantamount to using a $\phi$-mean with
 $\phi$ the power functions $\phi: x \rightarrow
-x^{\frac{1}{1-\rho}}$, $\rho>1$ where the coherence with the
+x^{\frac{1}{1-\sigma}}$, $\sigma>1$ where consistency with the
 model imposes an arithmetic mean. Hence, since $\phi$ is
-decreasing and convex, the substitution tends to overweight
-small countries.\\
+decreasing and convex, the substitution tends to underestimate trade costs.\\
 
-This is a static result. We are interested in the dynamic
-behavior of trade flows. But Jacks \textit{et al.}'s measure also
-overweights initially small trade partners in terms of the
-increase in trade flows. This can be seen by calculating the
-elasticities to the importations from country $k$ ($a_k$) of
+This is a static result. We are interested in its consequences for the dynamic
+behavior of trade flows. In terms of the
+increase in trade flows, Jacks \textit{et al.}'s measure
+overweights initially small trade partners. This can be seen by calculating the
+elasticities to the importations from a country $k$ ($a_k$) of
 the arithmetic mean ($m$) and of Jacks \textit{et al.}'s mean
 ($m_{\sigma}$) (keeping importations from other trade partners
 $a_j$ constant). The elasticity of a generic mean $m_\sigma$ to
@@ -645,7 +628,7 @@ represents a larger part of trade. But it is the opposite with
 $m_{\sigma}$: the smaller the initial value of trade with $k$,
 the bigger the impact of its growth on $m_{\sigma}$. Therefore,
 Jacks \textit{et al.}'s measure is biased toward the growth rates of
-costs incurred with small trade partners.
+costs incurred with initially small trade partners.
 
 \bibliographystyle{aer}
 \bibliography{bibliography}
