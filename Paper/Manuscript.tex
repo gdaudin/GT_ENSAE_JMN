@@ -49,7 +49,7 @@ Université Paris-Dauphine, PSL Research University, LEDa, UMR [225], DIAL, 7501
 \cite{JMN2011} offer a method to measure trade costs that relies exclusively on bilateral exports and GDP statistics.
 They argue that the reduction in trade costs was the main driving force of trade growth during the first globalization (1870-1913), whereas economic expansion was the main driving force during the second globalization (1950-2000).
 This potentially major result is driven by the use of an \textit{ad hoc} aggregation method of bilateral trade costs at the country and at the global levels.
-What \cite{JMN2011} capture is that some pair of countries (dyads) experienced faster trade growth in the first globalization than in the the second globalization.
+What \cite{JMN2011} capture is that some pairs of countries experienced faster trade growth in the first globalization than in the second globalization.
 More generally, we cast doubts on the possibility to reach conclusions on aggregate costs with a method that excludes \textit{a priori} changes in non-trade costs determinants of openness rates and hence can only rephrase the information contained in them.
 \end{abstract}
 
@@ -67,7 +67,7 @@ Jacks and his coauthors offer in several papers  an innovative method to measure
 evolution during the first and second waves of globalization
 (1870-1913 and 1950-2000) as well as the interwar period
 (1921-1939) thanks to the impressive set of data they collected
-on trade flows, GDP and exports between 27
+on trade flows and GDP between 27
 countries\footnote{Argentina, Australia, Austria, Belgium,
 Brazil, Canada, Denmark, France, Germany, Greece, India,
 Indonesia, Italy, Japan, Mexico, the Netherlands, New Zealand,
@@ -88,7 +88,7 @@ measure.'' (p. 196)}.
 
 This is potentially an important result that sheds light on the globalization processes.
 However, this result is actually driven by an \textit{ad hoc} method of aggregation that captures structure effects.
-The authors use a weighted arithmetic average of their measure of bilateral trade costs to compute country-specific trade costs. This is equivalent to using a power mean with exponent $1/(1-\sigma)$ of the values of dyadic trade flows ($\sigma > 1$ is the elasticity of substitution) to aggregate dyadic costs into country-specific costs.
+The authors use a weighted arithmetic average of their measure of trade costs between country pairs (dyads) to compute country-specific trade costs. This is equivalent to computing a power mean with exponent $1/(1-\sigma)$ of the values of dyadic trade flows ($\sigma > 1$ is the elasticity of substitution).
 In contrast, we show that an aggregation method theoretically rooted in \cite{AW2003}'s model would use a simple arithmetic mean of the value of the dyadic trade flows. 
 Because $1/(1-\sigma)$ < 0, the importance of small dyadic trade flows in the computation of country-specific trade costs is too large in the authors' computations.
 This is not compensated by the weight they use (end-of-period GDP). The authors' conclusion on the difference between the two globalization periods comes from the fact that the dyads with the fastest growing trade in the first wave of globalization start with very small trade; this is not the case in the second wave of globalization.
@@ -97,9 +97,11 @@ Indeed, we show that using our theory-based aggregation method, there is no diff
 More generally, we cast doubts on the possibility to distinguish between the impact of aggregate trade costs and the impact of aggregate economic expansion through an approach that relies solely on the study of trade flows and excludes \textit{a priori} other possible causes for the evolution of openness rates, like the evolution of vertical specialization and changes in the elasticity of substitution between domestic and foreign goods.
 Therefore, Jacks \textit{et al.}'s approach cannot be an alternative to traditional investigations of impediments to trade at the global level, such as commodity price gaps.
 It is much more useful to study bilateral trade costs, even though its usefulness is limited by the amount of structure that must be imposed on the data to use it. 
+Still, without the added structure imposed on the data, deducing trade costs from trade flows, and then using trade costs to explain trade flows would essentially be a circular reasoning
+
 
 We first present Jacks \textit{et al.}'s approach to the
-measure of trade costs, and insists on its relevance at the
+measure of trade costs, and insist on its relevance at the
 bilateral level to control for multilateral trade barriers in
 gravity regressions. We then highlight that the
 result on the difference of nature between the two globalizations
@@ -122,12 +124,12 @@ trade, Jacks, Meissner and Novy's work is primarily based on
 the general equilibrium model framework of \cite{AW2003}. $n$
 countries, each represented by a maximizing consumer, exchange
 goods over one single period. In this Armington world,
-production is not modelized\footnote{In the working paper
+production is not modelized and each country is initially
+endowed with a differentiated representative good. Trade occurs
+because of consumers' taste for diversity.\footnote{In the working paper
 version of \cite{JMN2010}, the authors provide a version of the
 model with production. The key equation is identical to the one
-of the model without production.} and each country is initially
-endowed with a differentiated representative good. Trade occurs
-because of consumers' taste for diversity. The preferences of
+of the model without production.} The preferences of
 all countries are assumed to be identical and modelized by a
 Constant Elasticity of Substitution (CES) utility function.
 
@@ -154,11 +156,11 @@ multilateral resistance variable ($P_i P_j$) from the gravity equation.
 As in \cite{NOVY}, they use the Head-Ries index (\cite{HR2001}) to express bilateral trade barriers not relatively to multilateral trade barriers modelized by
 the price index, but relatively to domestic trade costs. In this case,
 trade flows are no longer compared to outputs, but to internal
-trade $x_{ii}$\footnote{Due to data limitations, the authors
+trade $x_{ii}$.\footnote{Due to data limitations, the authors
 use the relation $x_{ii}=GDP_i-EXPORTS_i$ to get internal
 trade. We follow them. Concerns about the fact that GDP is
 measured in value-added and exportations as gross value are
-addressed in appendix B of \cite{JMN2011}.}. The equation above
+addressed in appendix B of \cite{JMN2011}.} The equation above
 becomes:
 
 \begin{eqnarray}
@@ -190,7 +192,7 @@ where $s_i=y_i/(y_i+y_j)$.\\
 
 The authors hence attribute the evolution of bilateral trade flows to four components: output growth, increasing total income similarity, changes in trade costs and a trade diversion effect.
 
-The method consists in determining the evolution of one unobservable variable (trade costs) based on the evolution of two groups of observable variables (trade flows and output) and a number of hypotheses on preferences and parameters ($\sigma$ and the relationship between $x_{ii}$, output and trade). A method that uses data on trade flows and output alone can only teach us so much about their determinants since non-trade costs determinants of trade flows (e.g. the elasticity of substitution and the importance of vertical specialization) are treated as parameters. If one assumes that preferences and parameters do not change (though these points are partly addressed  in appendix B of  \cite{JMN2011}), all changes in trade costs must restate information contained in changes in the measure of trade flows relative to economic size. Despite this heavy reliance on a priori hypotheses, or structure, it is an useful approach at the bilateral level because there no obvious simple indicator of bilateral openness. At the agregate level, there are obvious simple indicators of openness (e.g. openness ratio defined as the ratio of exportations to GDP), and the result of \cite{JMN2011} should restate it.
+The method consists in determining the evolution of one unobservable variable (trade costs) based on the evolution of two groups of observable variables (trade flows and output) and a number of hypotheses on preferences and parameters ($\sigma$ and the relationship between $x_{ii}$, output and trade). A method that uses data on trade flows and output alone can only teach us so much about their determinants since non-trade costs determinants of trade flows (e.g. the elasticity of substitution and the importance of vertical specialization) are treated as parameters. If one assumes that preferences and parameters do not change (though these points are partly addressed  in appendix B of  \cite{JMN2011}), all changes in trade costs must restate information contained in changes in the measure of trade flows relative to economic size. Despite this reliance on a priori hypotheses, or structure, it is a useful approach at the bilateral level because there no simple indicator of bilateral openness. At the agregate level, there are obvious simple indicators of openness (e.g. openness ratio defined as the ratio of exportations to GDP), and the result of \cite{JMN2011} should restate it.
 
 Yet, Jacks \emph{et al.}'s results seem to show otherwise. When one decomposes the level of exportations of a country simply as the product of its GDP and its openness ratio (see table \ref{OR}) one finds that for both globalizations the increase in exportations is mainly explained by GDP growth for the large majority of the 27 countries in the data.\footnote{We follow the authors in interpreting log differences as percentages. However, one should keep in mind that given the size of the changes, this is a very inexact approximation.}
 On average, this decomposition attributes 74\% (183/246) of the growth in trade to the increase in GDP in the second globalization and 62\% in the first globalization.
@@ -275,7 +277,7 @@ To show this point, we reproduce Jacks \emph{et al.}'s decomposition using inste
 %Well, theirs is less data intensive as it does not requires the full population of bilateral trade flows. But I agree it can be treated as a distraction GD
 
 
-Let us note $\upsilon_{i}$ the corresponding trade cost faced by country $i$ with all its trading partners in the data. Its expression is given by Jacks \textit{et al.}'s key equation (\ref{keyeq}) applied to a two-countries model:
+Let us note $\upsilon_{i}$ the corresponding trade cost faced by country $i$ with all its trading partners in the data. Its expression is given by Jacks \textit{et al.}'s key equation (\ref{keyeq}) applied to a two-country model:
 
 \begin{eqnarray}
 1+\upsilon_{i}= \left(\frac{x_{ii} x_{pp}}{x_{ip}
